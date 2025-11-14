@@ -60,3 +60,8 @@ collection.UpdateOne(
     x => x.Id == "69173975cb42f9c39d52f0c4",
     Builders<User>.Update.Set(x => x.Password, "mudar@123"));
 #endregion
+
+#region CRUD - Delete
+// Delete one document with .DeleteOne(filter)
+collection.DeleteOne(x => x.Id == "69173975cb42f9c39d52f0c4");
+#endregion
