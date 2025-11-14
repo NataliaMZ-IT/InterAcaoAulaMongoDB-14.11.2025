@@ -33,7 +33,10 @@ foreach (var person in users)
 Console.WriteLine("\n\n\n\n");
 
 // Read multiple documents with .Find(filter) based on condition
-var usersSpecific = collection.Find(x => x.Login == "Felipe").ToList();  // returns all occurrences in a list
+var usersSpecific = collection.Find(x => x.Login == "Felipe").ToList();  // .ToList() - returns all occurrences in a list
+
+var activeUsers = await collection.FindAsync(x => x.IsActive == true).Result.ToListAsync();  // async - doesn't wait for command to finish to continue program
+
 foreach (var person in usersSpecific)
 {
     Console.WriteLine(person);
